@@ -15,7 +15,9 @@ const { title = "Emin — Portfolio", description = "Engineering for the nanosec
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Geist+Mono:wght@100..900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Geist+Mono:wght@100..900&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Geist+Mono:wght@100..900&display=swap" /></noscript>
   </head>
   <body class="with-grid bg-bg text-text-primary min-h-screen flex flex-col">
     <a href="#main" class="skip-link">Skip to content</a>
