@@ -1,0 +1,9 @@
+---
+export interface Props { label: string }
+const { label } = Astro.props as Props;
+---
+<h2 class="meta flex items-center gap-3">
+  <span class="inline-block h-3 w-1 rounded-sm bg-accent"></span>
+  {label}
+</h2>
+

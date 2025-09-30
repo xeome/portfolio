@@ -1,0 +1,26 @@
+---
+import Button from "./Button.astro";
+const nav = [
+  { href: '#resume', label: 'Resume' },
+  { href: '#projects', label: 'Projects' },
+  { href: 'https://notes.xeome.dev/', label: 'Blog' },
+  { href: 'https://files.xeome.dev/gallery', label: 'Gallery' },
+];
+---
+<div class="flex h-14 items-center justify-between">
+  <a href="#hero" class="font-medium tracking-wide text-text-primary hover:text-white">Emin</a>
+  <div class="flex items-center gap-4">
+    <nav class="flex items-center gap-6">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm text-text-muted hover:text-text-primary transition-colors relative"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <Button href="#contact" variant="primary">Contact</Button>
+  </div>
+</div>
+

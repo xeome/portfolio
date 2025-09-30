@@ -1,0 +1,160 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+const description = "Engineering for the nanoseconds.";
+---
+<BaseLayout title="Emin — Home" description={description}>
+  <Hero tagline={description} />
+
+  <!-- Resume Section -->
+  <section id="resume" class="section-block">
+    <div class="section-inner">
+    <div class="flex items-center justify-between">
+      <h2 class="text-3xl font-light">Resume</h2>
+    </div>
+
+    <div class="mt-2 text-sm text-text-muted">
+      <div class="font-medium text-text-primary">Emin — Linux Kernel Engineer • Kernel & Networking Specialist</div>
+      <div>Kocaeli, TR • <a class="link-accent" href="mailto:xeome@proton.me">xeome@proton.me</a> • <a class="link-accent" href="https://github.com/xeome">github.com/xeome</a></div>
+    </div>
+
+    <section class="mt-8 space-y-6">
+      <SectionTitle label="Summary" />
+      <p class="reveal">Linux Kernel Engineer focused on high-performance networking and systems reliability. Proficient in C/C++/Rust/Go with hands-on eBPF and XDP experience. Deliver measurable latency and throughput gains through micro-optimization, observability, and rigorous systems engineering across kernel and user-space networking interfaces.</p>
+
+
+
+      <SectionTitle label="Experience" />
+      <div class="space-y-4">
+        <div class="panel p-4 reveal">
+          <div class="flex items-baseline justify-between">
+            <h3 class="font-medium">Research Scholar - Linux Kernel Engineering @ <a class="link-accent" href="https://bilgem.tubitak.gov.tr/" rel="noopener noreferrer">TÜBİTAK BİLGEM</a></h3>
+            <span class="meta">October 2023 – Present</span>
+          </div>
+          <ul class="mt-2 list-disc pl-5">
+            <li>Architected and delivered a high‑performance, scalable Linux networking data path leveraging XDP and AF_XDP, sustaining >10 Gbit/s line‑rate throughput under production workloads.  </li>
+            <li>Delivered custom out-of-tree Linux kernel module and core subsystem patches for extreme throughput and latency requirements.  </li>
+            <li>Designed and implemented a custom high‑throughput virtual block device with integrated kernel networking pathways to enable low‑latency data transfer between paired systems.  </li>
+            <li>Led cross‑architecture embedded platform enablement (Yocto Linux and Android) spanning PowerPC and ARM64.  </li>
+            <li>Built an accelerated packet capture and analysis framework using AF_XDP, enabling real‑time deep traffic inspection (tcpdump/Wireshark–class functionality) with significantly reduced CPU overhead.  </li>
+          </ul>
+        </div>
+        <div class="panel p-4 reveal">
+          <div class="flex items-baseline justify-between">
+            <h3 class="font-medium">Linux System Administrator @ <a class="link-accent" href="https://mono.tr/" rel="noopener noreferrer">Mono Bilişim</a></h3>
+            <span class="meta">March 2023 – October 2023 (8 months)</span>
+          </div>
+          <ul class="mt-2 list-disc pl-5">
+                <li>Automated server provisioning & config compliance with Ansible. </li>
+                <li>Tuned Linux kernels and sysctl parameters for measurable performance gains. </li>
+                <li>Optimized OPNsense firewall to sustain gigabit traffic. </li>
+                <li>Delivered secure, scalable reverse proxy and load balancing (Nginx/Caddy + TLS). </li>
+                <li>Built Go-based APIs and operational automation tools. </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+    </div>
+  </section>
+
+  <!-- Personal Projects Section -->
+  <section id="projects" class="section-block">
+    <div class="section-inner">
+      <SectionTitle label="Personal Projects (Non Work Related)" />
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="panel p-4 reveal">
+          <h3 class="font-medium"><a class="link-accent" href="https://github.com/xeome/riscv-kernel" target="_blank" rel="noopener noreferrer">RISC-V Kernel</a></h3>
+          <p>A RISC-V kernel written in C and assembly. This bare-metal kernel is implemented from scratch for the RISC-V ISA.</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-[11px] text-text-muted">
+            <span class="rounded border border-border px-2 py-0.5">C</span>
+            <span class="rounded border border-border px-2 py-0.5">Assembly</span>
+            <span class="rounded border border-border px-2 py-0.5">Kernel</span>
+            <span class="rounded border border-border px-2 py-0.5">OSDev</span>
+            <span class="rounded border border-border px-2 py-0.5">RISC-V</span>
+            <span class="rounded border border-border px-2 py-0.5">Bare-metal</span>
+          </div>
+        </div>
+        <div class="panel p-4 reveal">
+          <h3 class="font-medium"><a class="link-accent" href="https://github.com/xeome/buse-nfs" target="_blank" rel="noopener noreferrer">Buse-NFS</a></h3>
+          <p>A project using NBD to create a custom block device that syncs data with a remote buffer over the network.</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-[11px] text-text-muted">
+            <span class="rounded border border-border px-2 py-0.5">C++</span>
+            <span class="rounded border border-border px-2 py-0.5">Linux</span>
+            <span class="rounded border border-border px-2 py-0.5">NBD/BUSE</span>
+            <span class="rounded border border-border px-2 py-0.5">Block Device</span>
+            <span class="rounded border border-border px-2 py-0.5">Filesystem</span>
+            <span class="rounded border border-border px-2 py-0.5">Networking</span>
+          </div>
+        </div>
+        <div class="panel p-4 reveal">
+          <h3 class="font-medium"><a class="link-accent" href="https://github.com/xeome/XSKNet" target="_blank" rel="noopener noreferrer">XSKNet</a></h3>
+          <p>A high-performance networking stack using XDP and XSK to bypass the Linux kernel network stack.</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-[11px] text-text-muted">
+            <span class="rounded border border-border px-2 py-0.5">C</span>
+            <span class="rounded border border-border px-2 py-0.5">eBPF</span>
+            <span class="rounded border border-border px-2 py-0.5">XDP</span>
+            <span class="rounded border border-border px-2 py-0.5">AF_XDP</span>
+            <span class="rounded border border-border px-2 py-0.5">Networking</span>
+            <span class="rounded border border-border px-2 py-0.5">Linux</span>
+          </div>
+        </div>
+        <div class="panel p-4 reveal">
+          <h3 class="font-medium"><a class="link-accent" href="https://github.com/xeome/jcc" target="_blank" rel="noopener noreferrer">JCC (C Compiler)</a></h3>
+          <p>A self-hosting C compiler written from scratch.</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-[11px] text-text-muted">
+            <span class="rounded border border-border px-2 py-0.5">C</span>
+            <span class="rounded border border-border px-2 py-0.5">Compiler</span>
+            <span class="rounded border border-border px-2 py-0.5">Parser</span>
+            <span class="rounded border border-border px-2 py-0.5">Codegen</span>
+            <span class="rounded border border-border px-2 py-0.5">Self-hosting</span>
+            <span class="rounded border border-border px-2 py-0.5">AST</span>
+          </div>
+        </div>
+        <div class="panel p-4 reveal">
+          <h3 class="font-medium"><a class="link-accent" href="https://github.com/xeome/Zmem" target="_blank" rel="noopener noreferrer">Zmem</a></h3>
+          <p>A Linux memory monitoring program that displays detailed virtual memory information.</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-[11px] text-text-muted">
+            <span class="rounded border border-border px-2 py-0.5">Rust</span>
+            <span class="rounded border border-border px-2 py-0.5">Linux</span>
+            <span class="rounded border border-border px-2 py-0.5">Memory</span>
+            <span class="rounded border border-border px-2 py-0.5">Monitoring</span>
+            <span class="rounded border border-border px-2 py-0.5">CLI</span>
+            <span class="rounded border border-border px-2 py-0.5">zswap</span>
+          </div>
+        </div>
+        <div class="panel p-4 reveal">
+          <h3 class="font-medium"><a class="link-accent" href="https://github.com/xeome/xm32-vm" target="_blank" rel="noopener noreferrer">XM32</a></h3>
+          <p>A custom 32-bit fantasy CPU architecture and virtual machine written in Rust.</p>
+          <div class="mt-2 flex flex-wrap gap-2 text-[11px] text-text-muted">
+            <span class="rounded border border-border px-2 py-0.5">Rust</span>
+            <span class="rounded border border-border px-2 py-0.5">Virtual Machine</span>
+            <span class="rounded border border-border px-2 py-0.5">Emulator</span>
+            <span class="rounded border border-border px-2 py-0.5">Assembler</span>
+            <span class="rounded border border-border px-2 py-0.5">CPU Arch</span>
+            <span class="rounded border border-border px-2 py-0.5">32-bit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-block">
+    <div class="section-inner">
+    <SectionTitle label="Contact" />
+    <div class="mt-6 space-y-4">
+      <p class="reveal">I'm always open to discuss systems, performance, and tooling.</p>
+      <ul class="contact-links">
+        <li class="reveal"><a class="link-accent" href="https://github.com/xeome" aria-label="GitHub">GitHub</a> <span class="meta">xeome</span></li>
+        <li class="reveal"><a class="link-accent" href="mailto:xeome@proton.me" aria-label="Email">Email</a> <span class="meta">xeome@proton.me</span></li>
+        <li class="reveal"><a class="link-accent" href="https://discordapp.com/users/379295260066578433" aria-label="Discord">Discord</a> <span class="meta">jomo.sh</span></li>
+        <li class="reveal"><a class="link-accent" href="https://www.reddit.com/user/__jomo/" aria-label="Reddit">Reddit</a> <span class="meta">__jomo</span></li>
+
+      </ul>
+    </div>
+    </div>
+  </section>
+</BaseLayout>
