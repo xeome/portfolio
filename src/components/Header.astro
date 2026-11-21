@@ -3,47 +3,25 @@ import Button from "./Button.astro";
 const nav = [
   { href: '#resume', label: 'Resume' },
   { href: '#projects', label: 'Projects' },
-  { href: 'https://notes.xeome.dev/', label: 'Blog' },
-  { href: 'https://files.xeome.dev/gallery', label: 'Gallery' },
+  { href: 'https://notes.xeome.dev/', label: 'Blog', external: true },
+  { href: 'https://files.xeome.dev/gallery', label: 'Gallery', external: true },
 ];
 ---
-<div class="flex h-14 items-center justify-between">
-  <a href="#hero" class="font-medium tracking-wide text-text-primary hover:text-white">Emin</a>
-
-  <!-- Desktop nav -->
-  <div class="hidden md:flex items-center gap-4">
-    <nav class="flex items-center gap-6">
+<header class="top">
+  <a class="name" href="#hero">Emin</a>
+  <nav class="desk">
+    {nav.map((item) => (
+      <a href={item.href}>{item.label}{item.external && <svg viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5"/></svg>}</a>
+    ))}
+  </nav>
+  <Button href="#contact" small>Contact</Button>
+  <details class="menu">
+    <summary aria-label="Open menu"><svg viewBox="0 0 16 16"><path d="M2.5 5h11M2.5 11h11"/></svg></summary>
+    <nav class="sheet">
       {nav.map((item) => (
-        <a href={item.href} class="text-sm text-text-muted hover:text-text-primary transition-colors relative">
-          {item.label}
-        </a>
+        <a href={item.href}>{item.label}{item.external && <svg viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5"/></svg>}</a>
       ))}
+      <Button href="#contact">Contact</Button>
     </nav>
-    <Button href="#contact" variant="primary">Contact</Button>
-  </div>
-
-  <!-- Mobile menu -->
-  <div class="md:hidden">
-    <details class="relative">
-      <summary aria-label="Open menu" class="inline-flex flex-col items-center justify-center gap-1 h-9 w-9 rounded-[4px] border border-border text-text-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus)] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span class="sr-only">Menu</span>
-        <span class="block h-0.5 w-5 bg-current"></span>
-        <span class="block h-0.5 w-5 bg-current"></span>
-        <span class="block h-0.5 w-5 bg-current"></span>
-      </summary>
-      <div class="absolute right-0 top-12 z-50">
-        <nav class="panel mx-0 w-max max-w-[92vw] border border-border bg-surface-1 rounded-[4px] py-2">
-          {nav.map((item) => (
-            <a href={item.href} class="block px-4 py-3 text-base text-text-muted hover:text-text-primary transition-colors">
-              {item.label}
-            </a>
-          ))}
-          <div class="px-2 pt-2">
-            <Button href="#contact" variant="primary" as="a">Contact</Button>
-          </div>
-        </nav>
-      </div>
-    </details>
-  </div>
-</div>
-
+  </details>
+</header>

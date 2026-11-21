@@ -1,11 +1,11 @@
 # Personal Portfolio
 
-A modern, performant personal portfolio website built with Astro and Tailwind CSS.
+A modern, performant personal portfolio website built with Astro.
 
 ## Features
 
 - **Modern Stack**: Built with Astro 5.x for optimal performance and developer experience
-- **Responsive Design**: Fully responsive layout with Tailwind CSS
+- **Responsive Design**: Fully responsive layout in plain CSS
 - **Static Site Generation**: Pre-rendered pages for blazing-fast load times
 - **Component-Based Architecture**: Modular, reusable Astro components
 
@@ -82,7 +82,7 @@ This serves the contents of the `dist/` directory for testing before deployment.
 │   │   ├── Footer.astro
 │   │   ├── Header.astro
 │   │   ├── Hero.astro
-│   │   └── SectionTitle.astro
+│   │   └── SignalStrip.astro
 │   ├── data/           # Data files and content
 │   ├── layouts/        # Page layouts
 │   │   └── BaseLayout.astro
@@ -91,14 +91,12 @@ This serves the contents of the `dist/` directory for testing before deployment.
 │   └── styles/         # Global styles
 │       └── globals.css
 ├── astro.config.mjs    # Astro configuration
-├── tailwind.config.cjs # Tailwind CSS configuration
 └── package.json        # Project dependencies and scripts
 ```
 
 ## Technology Stack
 
 - **[Astro](https://astro.build/)** - Static site generator
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript (optional)
 
 ## Contributing
@@ -145,5 +143,5 @@ For issues, questions, or suggestions, please open an issue in the repository.
 
 ---
 
-Built with ❤️ using Astro and Tailwind CSS
+Built with ❤️ using Astro
 

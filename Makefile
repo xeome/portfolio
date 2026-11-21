@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NPM := npm
-DEPS := astro @astrojs/tailwind tailwindcss postcss autoprefixer
+DEPS := astro
 
 .PHONY: setup homepage dev build preview clean
 

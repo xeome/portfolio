@@ -1,0 +1,39 @@
+---
+const W = 1440, T = 32, H = 10, S = 6;
+const Y = { clk: 28, rx: 68, irq: 108, tx: 148 };
+const RX_LEN = 8, packets = [3, 24];
+
+const clock = () => {
+  let d = `M0 ${Y.clk + H}`;
+  for (let x = 0; x < W; x += T) d += ` H${x} V${Y.clk - H} H${x + T / 2} V${Y.clk + H}`;
+  return d;
+};
+const bus = (y: number, bursts: [number, number][]) => {
+  let idle = "", cells = "", from = 0;
+  for (const [start, len] of bursts) {
+    idle += `M${from} ${y} H${start * T} `;
+    for (let i = 0; i < len; i++) {
+      const x = (start + i) * T;
+      cells += `M${x} ${y} L${x + S} ${y - H} H${x + T - S} L${x + T} ${y} L${x + T - S} ${y + H} H${x + S} Z `;
+    }
+    from = (start + len) * T;
+  }
+  return { idle: idle + `M${from} ${y} H${W}`, cells };
+};
+
+const irq = packets.map((p) => p + RX_LEN + 1);
+const rx = bus(Y.rx, packets.map((p) => [p, RX_LEN]));
+const tx = bus(Y.tx, irq.map((i) => [i + 2, RX_LEN]));
+const irqPulses = irq.map((i) => `M${i * T} ${Y.irq + H} V${Y.irq - H} H${(i + 1) * T} V${Y.irq + H}`).join(" ");
+const edges = packets.flatMap((p) => [p, p + RX_LEN, p + RX_LEN + 3, p + 2 * RX_LEN + 3]);
+---
+<div class="signal" aria-hidden="true">
+  <svg viewBox={`0 0 ${W} 176`} preserveAspectRatio="xMinYMid slice">
+    {packets.map((p) => <rect class="win" x={(p + RX_LEN) * T} y="8" width={3 * T} height="164" />)}
+    {edges.map((e) => <line class="edge" x1={e * T} y1="6" x2={e * T} y2="170" />)}
+    <path class="clk" d={clock()} />
+    <path class="idle" d={rx.idle} /><path class="rx" d={rx.cells} />
+    <path class="base" d={`M0 ${Y.irq + H} H${W}`} /><path class="irq" d={irqPulses} />
+    <path class="idle" d={tx.idle} /><path class="tx" d={tx.cells} />
+  </svg>
+</div>
